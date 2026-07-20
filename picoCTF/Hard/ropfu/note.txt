@@ -1,0 +1,1 @@
+- ret2shellcode 32 bit, có gadget jmp eax để nhảy trực tiếp vào đầu stack, còn gadget call eax thì để đẩy địa chỉ kế sau call vào stack xong mới nhảy vào đầu stack -> nên dùng jmp eax

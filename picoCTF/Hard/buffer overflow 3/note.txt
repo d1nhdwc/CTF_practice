@@ -1,0 +1,1 @@
+- Ko còn cách nào khác, phải bruteforce đúng 4 bytes canary, chịu khó chờ thôi=))). Vì canary là static nên brute 1 lần thôi, những lần remote bof sau thì dùng luôn

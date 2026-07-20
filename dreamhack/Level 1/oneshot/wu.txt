@@ -1,0 +1,2 @@
+- Ta được cho sẵn 1 địa chỉ libc, tính offset để tính libc_base
+- Sau đó ta chỉ cần ret2libc với one_gadget để get execve.

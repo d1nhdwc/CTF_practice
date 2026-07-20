@@ -1,0 +1,4 @@
+- Ta bypass điều kiện kiểm tra đầu trước bằng 1 payload bắt đầu với chuỗi "DREAMHACK!" sau đó là chuỗi bytes giảm dần:
+pl = b"DREAMHACK!"
+pl += bytes(range(118, -1, -1))
+- Rồi ta có thể điều khiển được rip, setup ROPchain sao cho trỏ về shellcode đã setup trước(do NX tắt). ta sẽ dùng vùng bss để ghi shellcode là oke

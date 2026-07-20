@@ -1,0 +1,20 @@
+Chương trình cung cấp 3 hàm quan trọng:
+vuln(): Nhận input từ người dùng qua hàm gets(buf) với buf chỉ có 10 bytes. Đây là lỗ hổng Buffer Overflow cơ bản.
+win(): Mở file flag.txt và dùng fgets đọc flag vào một biến cục bộ trên Stack (buf). Tuy nhiên, hàm này không in flag ra màn hình rồi kết thúc.
+UnderConstruction(): Khai báo một loạt các con trỏ (demographic, p, q, age,...) nhưng không khởi tạo giá trị. Sau đó, hàm này in các con trỏ đó ra dưới định dạng %p (Hex).
+
+* Big idea:
+
+Stack Cache: Khi ta gọi hàm win(), chương trình sẽ đẩy chuỗi flag vào bộ nhớ cục bộ trên Stack. Khi win() kết thúc, nó giải phóng Stack Frame nhưng chuỗi flag về mặt vật lý vẫn nằm nguyên trên RAM.
+Ngay sau đó, nếu ta gọi tiếp hàm UnderConstruction(), Stack Frame mới của nó sẽ đè đúng vào vùng nhớ cũ. Các biến không được khởi tạo (demographic, age,...) vô tình "hứng" luôn các mảnh của chuỗi flag. Việc in các biến này ra chính là in flag!
+
+ROP Chain: Sử dụng lỗi Buffer Overflow trong vuln(), ta ghi đè Return Address (EIP).
+Offset để tràn là 14 bytes (10 bytes buf + 4 bytes saved EBP).
+Cấu trúc ROP: Nhảy vào win(), và set Return Address của win() là UnderConstruction().
+Payload: b"A"*14 + p32(win) + p32(UnderConstruction).
+
+Xử lý dữ liệu (Decoding):
+Hứng toàn bộ các con trỏ Hex in ra từ server và đưa vào một mảng.
+Do đặc thù vị trí cấp phát biến trên Stack (từ địa chỉ cao xuống thấp), các biến in ra sau (như Age) lại chứa phần đầu của chuỗi (như chữ picoCTF{). Do đó, ta cần lật ngược mảng thu được [::-1].
+Dùng hàm p32() ép các số nguyên Hex về lại dạng bytes gốc (đã tự động xử lý Little-Endian).
+

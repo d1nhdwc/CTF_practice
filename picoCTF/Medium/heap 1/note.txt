@@ -1,0 +1,1 @@
+- Tương tự bài heap0 nhưng mình overflow biến điều kiện bằng đúng "pico"

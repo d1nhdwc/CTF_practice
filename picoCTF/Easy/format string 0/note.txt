@@ -1,0 +1,5 @@
+Sau khi phân tích source, ta chỉ cần chọn tên khôn ngoan là chương tình sẽ đưa flag cho ta.
+- Ở lần nhập 1 chỉ cần chọn chuỗi Gr%114d_Cheese, chuỗi này lớn hơn 64 byte nên ta sẽ qua được hàm serve_patrick()
+- Đến với lần nhập 2 của hàm serve_bob, ta chọn chuỗi Cla%sic_Che%s%steak với 3 cái %s thì khả năng in đc flag rất cao.
+
+Flag: picoCTF{7h3_cu570m3r_15_n3v3r_SEGFAULT_a1d85b3e}

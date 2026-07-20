@@ -1,0 +1,3 @@
+- Khi đọc source xong thì dễ dàng nhận thấy, có hàm kiểm tra tín hiệu xem chương trình có crash hay ko, đơn giản làm chương trình crash ta sẽ có đc flag. Chỉ cần nhập 1 chuỗi bất kì > 100 là oke.
+
+Flag: picoCTF{ov3rfl0ws_ar3nt_that_bad_9f2364bc}

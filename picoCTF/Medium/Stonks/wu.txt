@@ -1,0 +1,3 @@
+- Sau khi đọc source thì ta dễ dàng phát hiện có lỗi format string trong hàm buy_stonk nên ta gửi nhiều %p đến và decode ra là có flag.
+
+Flag: picoCTF{I_l05t_4ll_my_m0n3y_e8393284}

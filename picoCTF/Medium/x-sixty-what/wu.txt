@@ -1,0 +1,3 @@
+- Bài ret2win đơn giản với noPIE No canary, để ý khi vào hàm flag stack bị lẻ là được
+
+Flag: picoCTF{b1663r_15_b3773r_d95e02b6}

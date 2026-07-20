@@ -1,0 +1,9 @@
+- Theo dõi source ta thấy chọn option 0x113 là có thể vào hàm steal_book, đây sẽ là hàm để ta lấy flag
+- struct bao gồm 0x20 bytes + 0x8 bytes lưu con trỏ đến vùng heap
+- Hàm borrow_book sẽ có phép ta mượn tối đa 0x50 quyển sách, với 3 select 1 2 3 tương ứng ta sẽ được gán listbook[booksize].bookname với 1 chuỗi và cấp phát listbook[booksize].contents trên vùng heap theo size tương ứng 0x100, 0x200, 0x300
+- Hàm read sẽ in ra listbook[select].contents, nếu ko có sách hoặc lựa chọn quá số lượng sách hiện có, hàm sẽ bị return
+- Hàm return_book sẽ free sẽ trả lại sách gần nhất mượn, tức là nó sẽ free phần heap đã cấp phát tại đó, gán cái bookname tại đó là "-----returned-----". Nhưng hàm này lại có 1 bug nghiêm trọng là free xong mà ko xoá con trỏ tại contents -> Ta có bug UAF tại hàm này
+- Hàm steal_book cho phép ta đọc 1 file nếu mà có đường dẫn của file đó, nhập size để malloc vào con trỏ secretbook.contents, xong cũng copy secretbook.bookname là "STOLEN BOOK" luôn
+
+*Ý tưởng khai thác: Trước hết mục tiêu mà ta nhắm đến sẽ là hàm steal khi ta có thể đọc flag vào heap với đường dẫn được cho sẵn "/home/pwnlibrary/flag.txt". Nhưng vấn đề là nó được lưu tại biến struct secretbook mà biến này ta lại ko có cách nào để in ra. Như vậy ta sẽ tận dụng bug Use-After-Free tại hàm return để đọc flag vào 1 biến đã bị free.
+- Ta sẽ mượn 1 quyển sách trước, lấy quyển 1 thì khi đó ta được malloc với size 0x100, sau đó cho free luôn bằng hàm return vì hàm này chỉ cho free với booksize-1. Do con trỏ vẫn được lưu nên ta sẽ dùng hàm steal để malloc tại size đó, tái dụng dụng quyển 1 với name sẽ là "-----returned-----" và content sẽ là flag của mình.

@@ -1,0 +1,3 @@
+- flag được ghi trực tiếp vào stack luôn nên ta dùng %p để leak là oke;
+
+Flag: picoCTF{4n1m41_57y13_4x4_f14g_9135fd4e}

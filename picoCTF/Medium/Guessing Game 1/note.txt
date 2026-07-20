@@ -1,0 +1,3 @@
+- Bài này ko có sẵn hàm đọc flag trực tiếp nên ta sẽ phải tạo shell thủ công
+- Đầu tiên ta sẽ đi bypass hàm random để vào win trước. Cách bypass rất đơn giản là ta sẽ lấy glibc với hàm CDLL của ctypes để lấy libc. Xong đó chỉ cần gọi glibc.rand()%100+1 là sẽ có đc số ngẫu nhiên đó
+- vào được win ta dễ dàng thấy bug buffer overflow. Vì challenge có đủ 4 gadget pop rax, rdi, rdi, rsi, syscall nên chắc chắn ta có thể lấy được shell bằng ROPchain đơn giản.

@@ -1,0 +1,3 @@
+- Bài nào ta sẽ leak địa chỉ exe bằng format string, tính exe.address rồi gửi địa chỉ hàm win ở dạng hexa thôi.
+
+Flag: picoCTF{p13_5h0u1dn'7_134k_297076a0}

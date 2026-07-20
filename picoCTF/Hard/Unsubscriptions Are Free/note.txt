@@ -1,0 +1,4 @@
+- 1 câu ghi đè heap 32 bits. Được cung cấp sẵn hàm đọc flag và no PIE
+- Tận dụng bug use-after-free và dùng option l để ghi đè biến thực thi thành hàm đọc flag là oke.
+
+picoCTF{d0ubl3_j30p4rdy_1f4801e9}

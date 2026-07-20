@@ -1,0 +1,10 @@
+- Đây là 1 bài ghi đè heap 1 byte thấp vào head tcache khá hay.
+- Ta thấy chương trình sẽ free 2 chunk6 và chunk. Vậy tcache sẽ có dạng:
+
+```chunk7 -> chunk6 <- 0```
+tcachebins
+0x90 [  2]: 0x603890 —▸ 0x603800 ◂— 0
+
+- Vậy nên lần malloc cuối với đúng size 0x80 sẽ luôn là chunk7 và chunk 6 mới là chunk chứa flag.
+- Vậy ý tưởng khai thác sẽ là ghi đè 1 byte thấp của head tcache từ trỏ vào chunk7 thành tỏ vào chunk6 để leak flag
+- VÌ chương trình cho phép ghi đè với idx kkể từ chunk đầu tiên được cấp phát. Vậy ta sẽ tính đc index chứa head tcache tại -5144 vào sửa 1 byte cuối thành byte '\x00'

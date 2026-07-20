@@ -1,0 +1,1 @@
+Do NX tắt nên ta sẽ viết shellcode 64 bits  viết vào đầu payload, sau đó overwrite saved rip thành gadget jmp rsi; ret; để ret2shellcode

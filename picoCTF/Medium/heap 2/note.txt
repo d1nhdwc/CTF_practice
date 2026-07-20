@@ -1,0 +1,1 @@
+- Bài này chính là ghi đè biến thực thi, đè này địa chỉ hàm win là oke

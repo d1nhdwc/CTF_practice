@@ -1,0 +1,6 @@
+do đã chặn syscall execve và execveat nên ta sẽ dùng kĩ thuật orw syscall.
+- Ta ưu tiên viết shellcode bằng shellcraft
+- Bước 1: tạo syscall open(path) với path đc cung cấp sẵn /home/shell_basic/flag_name_is_loooooong
+- Bước 2: Tạo syscall read(rax, rsp, 0x30)
+- Bước 3: Gọi syscall write(1, rsp, 0x30)
+- Nhớ phải để asm(shellcode) để gửi

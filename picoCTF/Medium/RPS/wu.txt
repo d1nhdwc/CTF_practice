@@ -1,0 +1,3 @@
+- Sau khi đọc source ta thấy có 1 bug tại hàm play. Khi kiểm tra điều kiện thắng bằng hàm strstr thì bản chất hàm này là tìm chuỗi con trong chuỗi mẹ nên ta chỉ đơn giản bypass bằng cách gửi chuỗi có cả 3 "rockpaperscissors" thì chắc chắn chỗi con đc tìm thấy thì strstr trả về true và win ++. Gửi liên tục 5 lần là ta có flag.
+
+Flag: picoCTF{50M3_3X7R3M3_1UCK_C85AF58A}

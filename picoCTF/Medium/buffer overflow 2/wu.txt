@@ -1,0 +1,3 @@
+- Đây cũng là 1 bài ret2win nhưng ta cần phải cài đặt tham số hợp lý cho hàm win để lấy flag, sau khi ghi đè rip thành win_address thì ta để 0xCAFEF00D ở [rbp + 8] và 0xF00DF00D ở [rbp + 12] là oke
+
+Flag: picoCTF{argum3nt5_4_d4yZ_59cd5643}

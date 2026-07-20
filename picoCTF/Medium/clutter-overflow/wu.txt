@@ -1,0 +1,3 @@
+- Bài này chỉ cần thay đổi biến tại $rbp-8 thành 0xDEADBEEF
+
+Flag: picoCTF{c0ntr0ll3d_clutt3r_1n_my_buff3r}

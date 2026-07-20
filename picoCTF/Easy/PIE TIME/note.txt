@@ -1,0 +1,3 @@
+Bài này ta được cung cấp sẵn địa chỉ của hàm main, lấy địa chỉ này rồi tính exe.address. Sau đó gửi địa chỉ hàm win dạng hexa là xong.
+
+Flag: picoCTF{b4s1c_p051t10n_1nd3p3nd3nc3_f8845f06}

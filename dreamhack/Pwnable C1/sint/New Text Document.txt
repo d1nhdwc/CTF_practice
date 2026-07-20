@@ -1,0 +1,3 @@
+- Do có hàm if check overflow nên ta ko thể nhập 1 số quá 256 byte.
+- Lại thấy hàm read sẽ nhập với kích cỡ size-1 nên ta sẽ cố tình nhập size là số 0 thì kích cỡ hàm read sẽ là -1 mà kiểu dữ liệu của size là size_t nên ko nhận giá trị âm sẽ bị Underflow nên 0xffffffff byte.
+- Tới đây ta chỉ cần đơn giản ret2win thôi

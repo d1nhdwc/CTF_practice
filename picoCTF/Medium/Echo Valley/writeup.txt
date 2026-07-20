@@ -1,0 +1,7 @@
+- Khi kiểm tra chế độ bảo vệ ta thấy khá nhiều lớp bảo vệ được bật kể cả PIE và RelRO
+- Ta ko ghi đè got đc, nên giải pháp tốt nhất là leak đc địa chỉ stack trỏ đến saved rip, Ta chia làm 3 bước khai thác chính
+- Đầu tiên ta leak exe_base để tính địa chỉ hàm print_flag
+- Sau đó ta leak đc 1 địa chỉ stack, rồi tính offset đến địa chỉ stack mà trỏ tới saved rip
+- Cuối cùng ta lấy địa chỉ stack trỏ đến saved rip đó đển ghi đè từ main + 18 thành print_flag
+
+Flag: picoctf{f1ckl3_f0rmat_f1asc0}

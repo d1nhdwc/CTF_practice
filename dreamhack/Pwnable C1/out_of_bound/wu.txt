@@ -1,0 +1,1 @@
+- Bài này ta chỉ cần ghi chuỗi /bin/sh vào name+4 rồi out-of-bound vào name+4 là oke (idx thứ 19)

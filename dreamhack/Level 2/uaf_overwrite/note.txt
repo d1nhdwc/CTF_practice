@@ -1,0 +1,11 @@
+Mục tiêu: Ghi đè con trỏ hàm của robot để thực thi one_gadget = [0x4f3ce, 0x4f3d5, 0x4f432, 0x10a41c]
+
+chỗ lưu con trỏ humman, robot, custom: 0x555555602040
+
+- viết hàm human xong free, do lần free của hàm robot trùng size (use-after-free) nên nó sẽ lấy luôn con trỏ của human trong bins để malloc.
+- nếu fptr của robot != null thì nó thực thi địa chỉ đó (mình sẽ nhét one_gadget vô đây age của human để thực thi system), NHưng ta phải có libc_base đã -> Tìm cách leak libc.
+- Thấy custom cho nhập size -> quyết định bins
+- Ta thấy trong hàm custom, read ko tự thêm null byte mà ta có prinf(%s, custom[c_idx]) -> Ta tận dụng để leak
+- Ta sẽ tạo 1 chunk A đủ lớn để vào unsorted bin (chọn idx -1 để ko free chunk nào cả), rồi tạo thêm 1 chunk B đủ lớn để vào unsorted bin, lúc này free chunk A.
+- Tiếp theo free chunk A vào unsorted bin, lúc này phần metadata của A sẽ chứa con trỏ tới main_arena của libc
+- Rồi ta sẽ xin lại đúng size của chunk A để leak thôi

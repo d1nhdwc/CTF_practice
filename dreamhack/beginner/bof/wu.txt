@@ -1,0 +1,1 @@
+- DO hàm read_cat sẽ có hàm open và read path, nên ta chèn chuỗi /home/bof/flag tại rbp-0x10 để hàm read_cat sẽ lấy tham số này để mở và đọc flag cho ta.

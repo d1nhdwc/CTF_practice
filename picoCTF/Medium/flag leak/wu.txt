@@ -1,0 +1,5 @@
+- Bài này 32 bit nên leak nó cứ lỏ lỏ kiểu gì nên mình bruteforce luôn =))
+
+- Cho %s từ %10$s đến %30$s ta sẽ thấy flag ở % thứ 24.
+
+Flag: picoCTF{L34k1ng_Fl4g_0ff_St4ck_95f60617}

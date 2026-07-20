@@ -1,0 +1,5 @@
+- Bài này ta có bug use-after-free
+- Với size của object x sẽ là 35 byte gồm 10 byte của a, 10 byte của b, 10 byte của c, và 5 byte còn lại của biến flag
+- Khi vừa vào chương trình ta được cấp phát x với size của object (35byte) và gán x->flag = "bico"
+- Theo dõi source thì chỉ cần thay đổi được x->flag thành "pico" là oke.
+- Vậy ý tưởng khai thác là sau khi khởi tạo ta sẽ free nó, sau đó trong option 2 nhập đúng size của object để tái sử dụng đoạn chunk đã free đó để ghi đè data.

@@ -1,0 +1,3 @@
+- Đây là bài ghi đè biến global cơ bản, do No PIE nên ta dễ dàng ghi đè được biến sus bằng %c + %n.
+
+Flag: picoCTF{f0rm47_57r?_f0rm47_m3m_5161a699}
